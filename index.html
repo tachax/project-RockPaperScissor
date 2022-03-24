@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Pedra, Papel e Tesoura</title>
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>Jogo de Pedra, Papel e Tesoura</h1>
+        <h3>GANHA a melhor de 5 pontos</h3>
+    </div>
+
+    <div class="jogadores">
+        <div class="player">
+            <h4>Jogador 1:</h4>
+            <input class="input" id="jogador1" type="text" name="jogador1" value="" placeholder="digite seu nickname" />
+            <br>
+        </div>
+
+        <div class="player">
+            <h4>Jogador 2:</h4>
+            <input class="input" id="jogador2" type="text" name="jogador2" value="" placeholder="digite seu nickname" />
+            <br>
+        </div>
+    </div>
+
+    
+        <div class="botaoIniciarJogo">
+            <button id="inicio" onclick="iniciarJogo()">Iniciar Jogo</button>
+        </div>
+   
+
+    <div id="game" class="comecarGame">
+        <div class="jogadores">
+            <div class="player">
+                <h4>Escolha uma das opções abaixo:</h4>
+                <div class="input" id="opcao1">
+                    <button id="pedra1" class="escolha" type="button" onclick="btPedra1()"> <img src="https://images.lojavivazen.com.br/files/674/MED_pedra-rolada-unakita-protecao-e-espiritualidade-706561.png" height ="80" width="100" /></button>
+                    <button id="papel1" class="escolha" type="button" onclick="btPapel1()"> <img src="http://cdn1.appsisecommerce.com.br/clientes/cliente8058/produtos/19544/Z2980.jpg" height ="80" width="100" /></button>
+                    <button id="tesoura1" class="escolha" type="button" onclick="btTesoura1()"> <img src="https://33622.cdn.simplo7.net/static/33622/sku/tesouras-e-alicates-tesoura-multiuso-16-cm-artepunto--p-1598299879312.png" height ="80" width="100" /></button>
+                </div>
+                <h4 id="pontosJogador1">Pontos: 0</h4>
+                <h4 id="escolhaNaTela1"></h4>
+                <br>
+            </div>
+
+            <div class="player">
+                <h4>Escolha uma das opções abaixo:</h4>
+                <div class="input" id="opcao1">
+                    <button id="pedra2" class="escolha" type="button" onclick="btPedra2()"> <img src="https://images.lojavivazen.com.br/files/674/MED_pedra-rolada-unakita-protecao-e-espiritualidade-706561.png" height ="80" width="100" /></button>
+                    <button id="papel1" class="escolha" type="button" onclick="btPapel2()"> <img src="http://cdn1.appsisecommerce.com.br/clientes/cliente8058/produtos/19544/Z2980.jpg" height ="80" width="100" /></button>
+                    <button id="tesoura1" class="escolha" type="button" onclick="btTesoura2()"> <img src="https://33622.cdn.simplo7.net/static/33622/sku/tesouras-e-alicates-tesoura-multiuso-16-cm-artepunto--p-1598299879312.png" height ="80" width="100" /></button>
+                </div>
+                <h4 id="pontosJogador2">Pontos: 0</h4>
+                <h4 id="escolhaNaTela2"></h4>
+                <br>
+            </div>
+        </div>
+
+        <div id="game" class="botaoJogar">
+            <button id="botaoJogar" onclick="jogar()">Jogar</button>
+        </div>
+
+        <div class="resultado">
+            <p id="rodada"></p>
+            <p id="resultado"></p>
+        </div>
+    </div>
+
+    <div id="parabens" class="parabens">
+        <p id="mensagemVencedor"></p>
+        <img id="imagemVencedor" src="">
+    </div>
+</body>
+
+</html>
