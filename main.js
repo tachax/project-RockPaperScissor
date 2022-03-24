@@ -24,10 +24,14 @@ function iniciarJogo() {
     return
   }
 
+  //desabilita o input do nickname para impossibilitar a mudança e o botao de iniciar jogo
+  document.getElementById('jogador1').disabled = true;
+  document.getElementById('jogador2').disabled = true;
+  document.getElementById('inicio').disabled = true;
+
   //detalhes da estilização (css)
   document.getElementById("game").style.display = "flex";
   document.getElementById("parabens").style.display = "none";
-  document.getElementById('inicio').disabled = true;
   document.getElementById('inicio').style.backgroundColor = '#363636';
   document.getElementById('inicio').style.opacity = 0.5;
   document.getElementById('inicio').style.cursor = 'default';
@@ -60,10 +64,6 @@ function btTesoura2() {
 }
 
 function jogar() {
-  //desabilita o input do nickname para impossibilitar a mudança
-  document.getElementById('jogador1').disabled = true;
-  document.getElementById('jogador2').disabled = true;
-
   //verifica se os jogadores fizeram uma escolha
   if (escolhaJogador1=='' || escolhaJogador2=="") {
     alert("Os dois jogadores devem fazer uma escolha")
@@ -145,14 +145,14 @@ function zerarJogo() {
   document.getElementById("escolhaNaTela1").innerText = "";
   document.getElementById("escolhaNaTela2").innerText = "";
 
-  //reativa o input do nickname para possibilitar a mudança
+  //reativa o input do nickname para possibilitar a mudança e o botao de iniciar jogo
   document.getElementById('jogador1').disabled = false;
   document.getElementById('jogador2').disabled = false;
+  document.getElementById('inicio').disabled = false;
 
   //detalhes da estilização (css)
   document.getElementById("parabens").style.display = "flex";
   document.getElementById("game").style.display = "none";
-  document.getElementById('inicio').disabled = false;
   document.getElementById('inicio').style.backgroundColor = '#d16940';
   document.getElementById('inicio').style.opacity = 1;
   document.getElementById('inicio').style.cursor = 'pointer';
