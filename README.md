@@ -1,4 +1,5 @@
-# projetoJogoPapelTesoura
+# project-RockPaperScissor
+
 Project of a rock, paper and scissors game to be played by two human players. Made with HTML, CSS and Javascript. Code made in Portuguese, but user interfaces updated to English.
 
 <a href="https://jogoxpedraxpapelxtesoura.netlify.app/" target="_blank">Link to play</a>
