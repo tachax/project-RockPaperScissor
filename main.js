@@ -20,7 +20,7 @@ function iniciarJogo() {
 
   //verifica se os jogadores digitaram os nicknames
   if (nickname1 == '' || nickname2 == "") {
-    alert("Os dois jogadores devem escolher um nickname")
+    alert("Both players must choose a nickname")
     return
   }
 
@@ -39,71 +39,73 @@ function iniciarJogo() {
 
 //botoes das escolhas
 function btPedra1() {
-  escolhaJogador1 = 'pedra';
+  escolhaJogador1 = 'rock';
   return escolhaJogador1;
 }
 function btPedra2() {
-  escolhaJogador2 = 'pedra';
+  escolhaJogador2 = 'rock';
   return escolhaJogador2;
 }
 function btPapel1() {
-  escolhaJogador1 = 'papel';
+  escolhaJogador1 = 'paper';
   return escolhaJogador1;
 }
 function btPapel2() {
-  escolhaJogador2 = 'papel';
+  escolhaJogador2 = 'paper';
   return escolhaJogador2;
 }
 function btTesoura1() {
-  escolhaJogador1 = 'tesoura';
+  escolhaJogador1 = 'scissors';
   return escolhaJogador1;
 }
 function btTesoura2() {
-  escolhaJogador2 = 'tesoura';
+  escolhaJogador2 = 'scissors';
   return escolhaJogador2;
 }
 
 function jogar() {
+  console.log(escolhaJogador1)
+  console.log(escolhaJogador2)
   //verifica se os jogadores fizeram uma escolha
   if (escolhaJogador1=='' || escolhaJogador2=="") {
-    alert("Os dois jogadores devem fazer uma escolha")
+    alert("The two players must make a choice")
     return
   }
 
   //atualiza as rodadas
   rodada += 1;
-  document.getElementById('rodada').innerText = `Rodada ${rodada}`;
-  document.getElementById("escolhaNaTela1").innerText = `Escolheu ${escolhaJogador1}`;
-  document.getElementById("escolhaNaTela2").innerText = `Escolheu ${escolhaJogador2}`;
+  document.getElementById('rodada').innerText = `Round ${rodada}`;
+  document.getElementById("escolhaNaTela1").innerText = `Chose ${escolhaJogador1}`;
+  document.getElementById("escolhaNaTela2").innerText = `Chose ${escolhaJogador2}`;
 
   //comparar as escolhas dos jogadores
   if (escolhaJogador1 == escolhaJogador2) {
-    diagnostico = `Empate!`;
+    diagnostico = `Tied!`;
     pontosJogador1 += 1;
     pontosJogador2 += 1;
-  } else if (escolhaJogador1 == 'pedra' && escolhaJogador2 == 'tesoura') {
-    diagnostico = `O vencedor da rodada foi ${nickname1}`;
+  } else if (escolhaJogador1 == 'rock' && escolhaJogador2 == 'scissors') {
+    diagnostico = `The winner of the round was ${nickname1}`;
     pontosJogador1 += 1;
-  } else if (escolhaJogador2 == 'pedra' && escolhaJogador1 == 'tesoura') {
-    diagnostico = `O vencedor da rodada foi ${nickname2}`;
+  } else if (escolhaJogador2 == 'rock' && escolhaJogador1 == 'scissors') {
+    diagnostico = `The winner of the round was ${nickname2}`;
     pontosJogador2 += 1;
-  } else if (escolhaJogador2 == 'pedra' && escolhaJogador1 == 'papel') {
-    diagnostico = `O vencedor da rodada foi ${nickname1}`;
+  } else if (escolhaJogador2 == 'rock' && escolhaJogador1 == 'paper') {
+    diagnostico = `The winner of the round was ${nickname1}`;
     pontosJogador1 += 1;
-  } else if (escolhaJogador1 == 'pedra' && escolhaJogador2 == 'papel') {
-    diagnostico = `O vencedor da rodada foi ${nickname2}`;
+  } else if (escolhaJogador1 == 'rock' && escolhaJogador2 == 'paper') {
+    diagnostico = `The winner of the round was ${nickname2}`;
     pontosJogador2 += 1;
-  } else if (escolhaJogador2 == 'tesoura' && escolhaJogador1 == 'papel') {
-    diagnostico = `O vencedor da rodada foi ${nickname2}`;
+  } else if (escolhaJogador2 == 'scissors' && escolhaJogador1 == 'paper') {
+    diagnostico = `The winner of the round was ${nickname2}`;
     pontosJogador2 += 1;
-  } else if (escolhaJogador1 == 'tesoura' && escolhaJogador2 == 'papel') {
-    diagnostico = `O vencedor da rodada foi ${nickname1}`;
+  } else if (escolhaJogador1 == 'scissors' && escolhaJogador2 == 'paper') {
+    diagnostico = `The winner of the round was ${nickname1}`;
     pontosJogador1 += 1
   }
 
   //mostra a pontuação atual na tela e o resultado da rodada
-  document.getElementById('pontosJogador1').innerText = `Pontos: ${pontosJogador1}`
-  document.getElementById('pontosJogador2').innerText = `Pontos: ${pontosJogador2}`
+  document.getElementById('pontosJogador1').innerText = `Points: ${pontosJogador1}`
+  document.getElementById('pontosJogador2').innerText = `Points: ${pontosJogador2}`
   document.getElementById('resultado').innerText = diagnostico;
 
   //apaga a escolha anterior para inserir novas e não reutilizar a da jogada anterior
@@ -112,17 +114,17 @@ function jogar() {
 
   //VERIFICAÇÃO DE VENCEDOR
   if ((pontosJogador1 == 3 && pontosJogador2 == 3)) {
-    mensagemParabens = `Rodada ${rodada}` + '<br>' + 'A PARTIDA EMPATOU' + '<br>' + `Parabens ${nickname1} e ${nickname2}!!!`;
+    mensagemParabens = `Round ${rodada}` + '<br>' + 'TIED' + '<br>' + `Congratulations ${nickname1} and ${nickname2}!!!`;
     document.getElementById("mensagemVencedor").innerHTML =  mensagemParabens;
     document.getElementById("imagemVencedor").src = "https://acegif.com/wp-content/uploads/funny-celebrate-8.gif";
     zerarJogo();
   } else if (pontosJogador2 == 3) {
-    mensagemParabens = `Rodada ${rodada}` + '<br>' + `VENCEDOR DA PARTIDA: ${nickname2}.` + '<br>' + 'Parabens!!!';;
+    mensagemParabens = `Round ${rodada}` + '<br>' + `WINNER: ${nickname2}.` + '<br>' + 'Congratulations!!!';;
     document.getElementById("mensagemVencedor").innerHTML = mensagemParabens;
     document.getElementById("imagemVencedor").src = "https://acegif.com/wp-content/uploads/funny-celebrate-8.gif";
     zerarJogo();
   } else if (pontosJogador1 == 3) {
-    mensagemParabens = `Rodada ${rodada}` + '<br>' + `VENCEDOR DA PARTIDA: ${nickname1}.` + '<br>' + 'Parabens!!!';
+    mensagemParabens = `Round ${rodada}` + '<br>' + `WINNER: ${nickname1}.` + '<br>' + 'Congratulations!!!';
     document.getElementById("mensagemVencedor").innerHTML =  mensagemParabens;
     document.getElementById("imagemVencedor").src = "https://acegif.com/wp-content/uploads/funny-celebrate-8.gif";
     zerarJogo();
@@ -140,8 +142,8 @@ function zerarJogo() {
   document.getElementById('resultado').innerText = '';
   document.getElementById("jogador1").value = "";
   document.getElementById("jogador2").value = "";
-  document.getElementById('pontosJogador1').innerText = `Pontos: 0`;
-  document.getElementById('pontosJogador2').innerText = `Pontos: 0`;
+  document.getElementById('pontosJogador1').innerText = `Points: 0`;
+  document.getElementById('pontosJogador2').innerText = `Points: 0`;
   document.getElementById("escolhaNaTela1").innerText = "";
   document.getElementById("escolhaNaTela2").innerText = "";
 

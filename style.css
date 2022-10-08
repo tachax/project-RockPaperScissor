@@ -5,7 +5,7 @@
   
   body {
     text-align: center;
-    background: linear-gradient(270deg, #b48606 27.26%, #c5a12b 96.03%);
+    background: linear-gradient(270deg, #5aabcb 27.26%, #63a2c3 96.03%);
   }
   
   .titulo {
@@ -32,7 +32,7 @@
     font-size: 25px;
     padding: 8px;
     color: whitesmoke;
-    background-color: red;
+    background-color: rgb(108, 29, 29);
     border-radius: 8px;
     border: solid 2px whitesmoke;
     cursor: pointer;
